@@ -35,7 +35,7 @@ create a test that against the playerSelection where they are the winner
 create a test where the playerSelection loses
     playerSelection = Rock and computerChoice = Paper
     playerSelection = Paper and computerChoice = Scissors 
-    playerSelection = Scissor and computerChoice = Scissors
+    playerSelection = Scissor and computerChoice = rock
         return `You Lose! ${computerChoice} beats ${playerSelection}!'
 and if it is draw then return It a tie! You both selected ${computerChoice}
 change the playerSelection to parameter case insensitive 
@@ -45,10 +45,16 @@ change the playerSelection to parameter case insensitive
 
 function playRound(playerSelection, computerChoice){
 
-    if(playerSelection.toLowerCase() === 'rock' && computerChoice === 'scissors' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'rock' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'paper'){
+    if(
+        playerSelection.toLowerCase() === 'rock' && computerChoice === 'scissors' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'rock' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'paper'){
         return `You Win! ${playerSelection} beats ${computerChoice}!`
+    }else if(
+        playerSelection.toLowerCase() === 'rock' && computerChoice === 'paper' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'scissors' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'rock'  
+    ){
+        return `You Lose! ${computerChoice} beats ${playerSelection}!`
+    }else {
+        return `It a draw you both chose ${computerChoice}`
     }
-    return 'you lose!'
 }
 
 const playerSelection = 'scissors'
