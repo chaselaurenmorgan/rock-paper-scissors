@@ -25,4 +25,17 @@ function getComputerChoice(){
     
 }
 
-console.log(getComputerChoice())
+/* 
+Create a function name playRound and give it two a parameters of playerSelection and computerSelection 
+create a test that against the playerSelection where they are the winner 
+    playerSelection = Rock and computerChoice is  = Scissors 
+    playerSelection = Paper and computerChoice is = Rock
+    PlayerSelcetion = Scissors and computerChoice = Paper
+        return `You Win! ${playerSelection} beats ${computerChoice}!'
+create a test where the playerSelection loses
+    playerSelection = Rock and computerChoice = Paper
+    playerSelection = Paper and computerChoice = Scissors 
+    playerSelection = Scissor and computerChoice = Scissors
+        return `You Lose! ${computerChoice} beats ${playerSelection}!'
+and if it is draw then return It a tie! You both selected ${computerChoice}
+*/
