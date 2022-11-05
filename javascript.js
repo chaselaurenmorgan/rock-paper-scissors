@@ -44,18 +44,32 @@ change the playerSelection to parameter case insensitive
 */
 
 function playRound(playerSelection, computerChoice){
+    
+
 
     if(
         playerSelection === 'rock' && computerChoice === 'scissors' || playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper'){
-        return `You Win! ${playerSelection[0].toUpperCase() + playerSelection.slice(1)} beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}!`
+        
+        return 'win' 
+
     }else if(
         playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice == 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock'  
     ){
-        return `You Lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}!`
+ 
+
+        return 'lose'
+
     }else {
-        return `It a draw you both chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`
+    
+        return 'draw'
     }
 }
+
+
+
+
+
+
 
 
 /* 
@@ -67,16 +81,39 @@ report the loser or winner at the end
 */
 
 function game(){
-
+    let playerPoints = 0
+    let computerPoints = 0
 
     for(let i = 0; i < 5; i++){
         const playerSelection = prompt('Chose Rock, Paper, or Scissors').toLowerCase()
         const computerChoice = getComputerChoice()
-       
-        console.log(playRound(playerSelection,computerChoice))
-       
-    }
+
+        if(playRound(playerSelection,computerChoice) === 'win'){
+            console.log(`${playerSelection[0].toUpperCase() + playerSelection.slice(1)} beats 
+        ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}, You win!`)
+
+            playerPoints++
+
+        }else if (playRound(playerSelection,computerChoice) === 'lose'){
+
+            console.log(`${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats 
+            ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}!, You lose!`)
     
+            computerPoints++
+            
+        } else{
+            console.log(`It a draw you both chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`)
+        }
+        
+        console.log(playerPoints,computerPoints)
+        
+    }
+     if(playerPoints > computerPoints){
+        console.log('You Won the most out of 5 Rounds!')
+     }else{
+        console.log('You Loss the most out of 5 Rounds!')
+     }
+
 }
 
 game()
