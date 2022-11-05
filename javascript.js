@@ -11,3 +11,10 @@
 3. use the console to make sure that it works
     console.log(getComputerChoice())
 */
+
+function getComputerChoice(){
+    let randomNumber = Math.floor(Math.random()*3)+1
+    
+}
+
+console.log(getComputerChoice())
