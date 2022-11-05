@@ -16,11 +16,11 @@ function getComputerChoice(){
     let randomNumber = Math.floor(Math.random()*3)+1
     
     if(randomNumber === 1){
-        return 'Rock'
+        return 'rock'
     }else if(randomNumber === 2){
-        return 'Paper'
+        return 'paper'
     }else {
-        return 'Scissors'
+        return 'scissors'
     }
     
 }
@@ -38,4 +38,19 @@ create a test where the playerSelection loses
     playerSelection = Scissor and computerChoice = Scissors
         return `You Lose! ${computerChoice} beats ${playerSelection}!'
 and if it is draw then return It a tie! You both selected ${computerChoice}
+change the playerSelection to parameter case insensitive 
+    - change the string of Rock Paper Scissors to lowerCase in getComputer
+    - in the conditonal playerSelection.toLowerCase()
 */
+
+function playRound(playerSelection, computerChoice){
+
+    if(playerSelection.toLowerCase() === 'rock' && computerChoice === 'scissors' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'rock' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'paper'){
+        return `You Win! ${playerSelection} beats ${computerChoice}!`
+    }
+    return 'you lose!'
+}
+
+const playerSelection = 'scissors'
+const computerChoice = getComputerChoice()
+console.log(playRound(playerSelection,computerChoice))
