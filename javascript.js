@@ -46,20 +46,16 @@ change the playerSelection to parameter case insensitive
 function playRound(playerSelection, computerChoice){
 
     if(
-        playerSelection.toLowerCase() === 'rock' && computerChoice === 'scissors' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'rock' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'paper'){
+        playerSelection === 'rock' && computerChoice === 'scissors' || playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper'){
         return `You Win! ${playerSelection[0].toUpperCase() + playerSelection.slice(1)} beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}!`
     }else if(
-        playerSelection.toLowerCase() === 'rock' && computerChoice === 'paper' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'scissors' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'rock'  
+        playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice == 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock'  
     ){
         return `You Lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}!`
     }else {
         return `It a draw you both chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`
     }
 }
-
-const playerSelection = 'paper'
-const computerChoice = getComputerChoice()
-console.log(playRound(playerSelection,computerChoice))
 
 
 /* 
@@ -69,4 +65,20 @@ within that loop call the playRound()
 withing that loop keep score 
 report the loser or winner at the end
 */
+
+function game(){
+
+
+    for(let i = 0; i < 5; i++){
+        const playerSelection = prompt('Chose Rock, Paper, or Scissors').toLowerCase()
+        const computerChoice = getComputerChoice()
+       
+        console.log(playRound(playerSelection,computerChoice))
+       
+    }
+    
+}
+
+game()
+
 
