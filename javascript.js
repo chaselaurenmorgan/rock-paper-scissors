@@ -60,3 +60,13 @@ function playRound(playerSelection, computerChoice){
 const playerSelection = 'paper'
 const computerChoice = getComputerChoice()
 console.log(playRound(playerSelection,computerChoice))
+
+
+/* 
+create a function name game()
+play 5 rounds using a loop 
+within that loop call the playRound()
+withing that loop keep score 
+report the loser or winner at the end
+*/
+
