@@ -47,16 +47,16 @@ function playRound(playerSelection, computerChoice){
 
     if(
         playerSelection.toLowerCase() === 'rock' && computerChoice === 'scissors' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'rock' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'paper'){
-        return `You Win! ${playerSelection} beats ${computerChoice}!`
+        return `You Win! ${playerSelection[0].toUpperCase() + playerSelection.slice(1)} beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}!`
     }else if(
         playerSelection.toLowerCase() === 'rock' && computerChoice === 'paper' || playerSelection.toLowerCase() === 'paper' && computerChoice == 'scissors' || playerSelection.toLowerCase() === 'scissors' && computerChoice === 'rock'  
     ){
-        return `You Lose! ${computerChoice} beats ${playerSelection}!`
+        return `You Lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}!`
     }else {
-        return `It a draw you both chose ${computerChoice}`
+        return `It a draw you both chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`
     }
 }
 
-const playerSelection = 'scissors'
+const playerSelection = 'paper'
 const computerChoice = getComputerChoice()
 console.log(playRound(playerSelection,computerChoice))
