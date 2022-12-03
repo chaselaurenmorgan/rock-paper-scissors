@@ -5,47 +5,31 @@ const getComputerChoice = () =>{
     return randomChoice[randomNumber]
 }
 
-/* 
-Create a function name playRound and give it two a parameters of playerSelection and computerSelection 
-create a test that against the playerSelection where they are the winner 
-    playerSelection = Rock and computerChoice is  = Scissors 
-    playerSelection = Paper and computerChoice is = Rock
-    PlayerSelcetion = Scissors and computerChoice = Paper
-        return `You Win! ${playerSelection} beats ${computerChoice}!'
-create a test where the playerSelection loses
-    playerSelection = Rock and computerChoice = Paper
-    playerSelection = Paper and computerChoice = Scissors 
-    playerSelection = Scissor and computerChoice = rock
-        return `You Lose! ${computerChoice} beats ${playerSelection}!'
-and if it is draw then return It a tie! You both selected ${computerChoice}
-change the playerSelection to parameter case insensitive 
-    - change the string of Rock Paper Scissors to lowerCase in getComputer
-    - in the conditonal playerSelection.toLowerCase()
-*/
+/* Plays a single round of rps*/
+const playRound = (playerSelection,computerSelection) =>{
+    console.log('1',playerSelection,'2',computerSelection)
 
-function playRound(playerSelection, computerChoice){
-    
-
-
-    if(
-        playerSelection === 'rock' && computerChoice === 'scissors' || playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper'){
-        
-        return 'win' 
-
-    }else if(
-        playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'paper' && computerChoice == 'scissors' || playerSelection === 'scissors' && computerChoice === 'rock'  
-    ){
- 
-
-        return 'lose'
-
-    }else {
-    
-        return 'draw'
+    if(playerSelection === computerSelection){
+        return `It's a DRAW! You both chose ${playerSelection}`
+    }else if(playerSelection === 'rock' && computerSelection === 'scissors'){
+        return `You WIN! ${playerSelection} beats ${computerSelection}`
+    }else if(computerSelection === 'rock' && playerSelection === 'scissors'){
+        return `You LOSE! ${computerSelection} beats ${playerSelection}`
+    }else if(playerSelection === 'paper' && computerSelection === 'rock'){
+        return `You WIN! ${playerSelection} beats ${computerSelection}`
+    }else if(computerSelection === 'paper' && playerSelection === 'rock'){
+        return `You LOSE! ${computerSelection} beats ${playerSelection}`
+    }else if(playerSelection === 'scissors' && computerSelection === 'paper'){
+        return `You WIN! ${playerSelection} beats ${computerSelection}`
+    }else if(computerSelection === 'scissors' && playerSelection === 'paper'){
+        return `You LOSE! ${computerSelection} beats ${playerSelection}`
     }
 }
 
+const playerSelection = 'scissors'
+const computerChoice = getComputerChoice()
 
+console.log(playRound(playerSelection,computerChoice))
 
 
 
@@ -60,42 +44,42 @@ withing that loop keep score
 report the loser or winner at the end
 */
 
-function game(){
-    let playerPoints = 0
-    let computerPoints = 0
+// function game(){
+//     let playerPoints = 0
+//     let computerPoints = 0
 
-    for(let i = 0; i < 5; i++){
-        const playerSelection = prompt('Chose Rock, Paper, or Scissors').toLowerCase()
-        const computerChoice = getComputerChoice()
+//     for(let i = 0; i < 5; i++){
+//         const playerSelection = prompt('Chose Rock, Paper, or Scissors').toLowerCase()
+//         const computerChoice = getComputerChoice()
 
-        if(playRound(playerSelection,computerChoice) === 'win'){
-            console.log(`${playerSelection[0].toUpperCase() + playerSelection.slice(1)} beats 
-        ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}, You win!`)
+//         if(playRound(playerSelection,computerChoice) === 'win'){
+//             console.log(`${playerSelection[0].toUpperCase() + playerSelection.slice(1)} beats 
+//         ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}, You win!`)
 
-            playerPoints++
+//             playerPoints++
 
-        }else if (playRound(playerSelection,computerChoice) === 'lose'){
+//         }else if (playRound(playerSelection,computerChoice) === 'lose'){
 
-            console.log(`${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats 
-            ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}!, You lose!`)
+//             console.log(`${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats 
+//             ${playerSelection[0].toUpperCase() + playerSelection.slice(1)}!, You lose!`)
     
-            computerPoints++
+//             computerPoints++
             
-        } else{
-            console.log(`It a draw you both chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`)
-        }
+//         } else{
+//             console.log(`It a draw you both chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`)
+//         }
         
-        console.log(playerPoints,computerPoints)
+//         console.log(playerPoints,computerPoints)
         
-    }
-     if(playerPoints > computerPoints){
-        console.log('You Won the most out of 5 Rounds!')
-     }else{
-        console.log('You Loss the most out of 5 Rounds!')
-     }
+//     }
+//      if(playerPoints > computerPoints){
+//         console.log('You Won the most out of 5 Rounds!')
+//      }else{
+//         console.log('You Loss the most out of 5 Rounds!')
+//      }
 
-}
+// }
 
-game()
+
 
 
